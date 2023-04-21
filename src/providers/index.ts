@@ -1,3 +1,3 @@
-import ReactQuery from "./react-query";
+import { KoreQueryContext, ReactQuery, useReactQueryClient } from "./react-query";
 
-export default ReactQuery;
+export { ReactQuery, KoreQueryContext, useReactQueryClient };

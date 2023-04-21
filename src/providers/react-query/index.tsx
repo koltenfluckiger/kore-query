@@ -4,20 +4,40 @@ declare namespace KoreQuery {
   }
 }
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React, { ReactElement, useState } from "react";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQueryClient,
+} from "@tanstack/react-query";
+import React, {
+  ReactElement,
+  createContext,
+  useContext,
+  useState,
+} from "react";
+
+// @ts-ignore
+const KoreQueryContext: React.Context<QueryClient> = createContext({});
 
 const queryClientFactory = () => {
+  // @ts-ignore
+  window.KoreQueryContext = KoreQueryContext;
   return new QueryClient();
 };
 
 const ReactQuery = ({
   children,
-  options,
+  options = {
+    queries: {
+      staleTime: 0.5 * 24 * 60 * 60,
+      cacheTime: 1 * 24 * 60 * 60,
+      suspense: true,
+    },
+  },
 }: {
   children: JSX.Element;
   options?: KoreQuery.ReactQueryOptions;
-}): ReactElement => {
+}): React.Context<QueryClient> | ReactElement<any, any> => {
   const client = queryClientFactory();
   const [newClient] = useState(
     () =>
@@ -27,9 +47,22 @@ const ReactQuery = ({
         defaultOptions: options,
       })
   );
+
   return (
-    <QueryClientProvider client={newClient}>{children}</QueryClientProvider>
+    // @ts-ignore
+    <QueryClientProvider
+      client={newClient}
+      // @ts-ignore
+      context={KoreQueryContext}
+      contextSharing={true}
+    >
+      {children}
+    </QueryClientProvider>
   );
 };
+const useReactQueryClient = () => {
+  // @ts-ignore: Unreachable code error
+  return useContext(KoreQueryContext);
+};
 
-export default ReactQuery;
+export { useReactQueryClient, ReactQuery, KoreQueryContext };

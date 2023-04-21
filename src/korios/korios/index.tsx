@@ -21,7 +21,9 @@ class Korios {
   public setBaseurl(options: Options): void {
     this.axios.defaults.baseURL = options.baseurl;
   }
-
+  public setDefaults(options: Options): void {
+    this.axios.defaults = { ...this.axios.defaults, ...options };
+  }
   public setHeaders(headers: object): void {
     this.axios.defaults.headers = {
       ...this.axios.defaults.headers,

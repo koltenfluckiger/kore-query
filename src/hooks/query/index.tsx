@@ -1,19 +1,25 @@
-import { useQuery } from "@tanstack/react-query";
+import { KoreQueryContext, useReactQueryClient } from "../../providers";
+import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 
+import React from "react";
 function useReactQuery({
-    queryKey,
-    queryFunc,
+  queryContext,
+  queryKey,
+  queryFunc,
 }: {
-    queryKey: Array<string>;
-    queryFunc: Awaited<Promise<any>>;
+  queryContext: React.Context<QueryClient | undefined>;
+  queryKey: Array<string>;
+  queryFunc: Awaited<Promise<any>>;
 }) {
-    return useQuery({
-        queryKey: queryKey,
-        queryFn: async () => {
-            const { data } = await queryFunc();
-            return data;
-        },
-    });
+  return useQuery({
+    // @ts-ignore
+    queryKey: queryKey,
+    queryFn: async () => {
+      const { data } = await queryFunc();
+      return data;
+    },
+    context: queryContext,
+  });
 }
 
 export default useReactQuery;

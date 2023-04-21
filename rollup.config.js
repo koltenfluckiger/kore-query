@@ -3,13 +3,15 @@ const external = require("rollup-plugin-peer-deps-external");
 const pkg = require("./package.json");
 const resolve = require("@rollup/plugin-node-resolve");
 const typescript = require("rollup-plugin-typescript2");
-const json = require("@rollup/plugin-json")
+const json = require("@rollup/plugin-json");
+
+
 module.exports = {
     input: "src/index.ts",
     watch: {
-        include: 'src/**'
+        include: ['src/**', './rollup.config.js']
     },
-    shimMissingExports: true,
+    external: ["react", "react-dom", "react-router-dom"],
     output: [
         {
             file: "./lib/index.js",
@@ -25,20 +27,21 @@ module.exports = {
         },
 
     ],
-
+    preferBuiltins: true,
     plugins: [
         json(),
-        resolve(),
-        external(),
-
-        commonjs(
-        ),
+        external({}),
+        resolve({ browser: true }),
+        commonjs({ transformMixedEsModules: true, defaultIsModuleExports: true }),
         typescript({
-            exclude: "**/__tests__/**",
+            module: "esnext",
             clean: true,
             allowSyntheticDefaultImports: true,
             tsconfig: "tsconfig.json",
-            exclude: ['node_modules/@tanstack/**', 'node_modules/**', 'node_modules']
-        }),
-    ]
+            include: ["*.js+(|x)", "**/*.js+(|x)", "*.ts+(|x)", "**/*.ts+(|x)"],
+            exclude: ['node_modules/@tanstack/**', '**/node_modules/**/*'],
+            allowJs: true
+        })
+    ],
+
 };
