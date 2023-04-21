@@ -1,3 +1,4 @@
-import useReactQuery from "./query";
+import { useReactQuery, useReactQueryAutoRefetch } from "./query";
+
 import useReactQueryMutation from "./mutation";
-export { useReactQuery, useReactQueryMutation };
+export { useReactQuery, useReactQueryAutoRefetch, useReactQueryMutation };

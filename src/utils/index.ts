@@ -1,4 +1,7 @@
+import { TYPE, Time } from "./time";
+
 import asyncRequest from "./korios";
 import wrapInSuspense from "./suspense";
 
-export { wrapInSuspense, asyncRequest };
+export { TYPE, Time, asyncRequest, wrapInSuspense };
+

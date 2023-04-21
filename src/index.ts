@@ -4,4 +4,5 @@ import { useReactQuery, useReactQueryMutation } from "./hooks";
 
 import Korios from "./korios";
 
-export { wrapInSuspense, asyncRequest, KoreQueryContext, useReactQueryClient, Korios, ReactQuery, useReactQuery, useReactQueryMutation };
+export { KoreQueryContext, Korios, ReactQuery, asyncRequest, useReactQuery, useReactQueryClient, useReactQueryMutation, wrapInSuspense };
+

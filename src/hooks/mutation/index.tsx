@@ -9,8 +9,6 @@ function useReactQueryMutation({
   queryContext: React.Context<QueryClient | undefined>;
   mutationFn: Awaited<Promise<any>>;
 }) {
-  return useMutation(mutationFn, {
-    context: queryContext,
-  });
+  return useMutation(mutationFn, { context: queryContext });
 }
 export default useReactQueryMutation;

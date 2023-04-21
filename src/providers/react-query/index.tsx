@@ -4,11 +4,7 @@ declare namespace KoreQuery {
   }
 }
 
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, {
   ReactElement,
   createContext,
@@ -61,8 +57,8 @@ const ReactQuery = ({
   );
 };
 const useReactQueryClient = () => {
-  // @ts-ignore: Unreachable code error
+  // @ts-ignore
   return useContext(KoreQueryContext);
 };
 
-export { useReactQueryClient, ReactQuery, KoreQueryContext };
+export { KoreQueryContext, ReactQuery, useReactQueryClient };
