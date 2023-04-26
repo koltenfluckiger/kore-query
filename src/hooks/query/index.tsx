@@ -2,9 +2,10 @@ import { QueryClient, useQuery } from "@tanstack/react-query";
 import { TYPE, Time } from "../../utils";
 
 import React from "react";
+import { useReactQueryContext } from "../../providers";
 
 function useReactQuery({
-  queryContext,
+  queryContext = useReactQueryContext(),
   queryKey,
   queryFunc,
 }: {
@@ -12,15 +13,20 @@ function useReactQuery({
   queryKey: Array<string>;
   queryFunc: Awaited<Promise<any>>;
 }) {
-  return useQuery({
-    // @ts-ignore
-    queryKey: queryKey,
-    queryFn: async () => {
-      const { data } = await queryFunc();
-      return data;
-    },
-    context: queryContext,
-  });
+  try {
+    return useQuery({
+      // @ts-ignore
+      queryKey: queryKey,
+      queryFn: async () => {
+        const { data } = await queryFunc();
+        return data;
+      },
+      context: queryContext,
+    });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 }
 function useReactQueryAutoRefetch({
   refetchInterval = Time.convert({
@@ -30,7 +36,7 @@ function useReactQueryAutoRefetch({
     seconds: 0,
     days: 0,
   }),
-  queryContext,
+  queryContext = useReactQueryContext(),
   queryKey,
   queryFunc,
 }: {

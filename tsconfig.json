@@ -20,10 +20,11 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "noImplicitOverride": false,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "allowSyntheticDefaultImports": true,
     "noUnusedParameters": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noImplicitUseStrict": false
   },
   "include": [
     "src/**/*.ts*",

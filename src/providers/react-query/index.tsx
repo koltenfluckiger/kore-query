@@ -61,4 +61,13 @@ const useReactQueryClient = () => {
   return useContext(KoreQueryContext);
 };
 
-export { KoreQueryContext, ReactQuery, useReactQueryClient };
+const useReactQueryContext = () => {
+  return KoreQueryContext;
+};
+
+export {
+  KoreQueryContext,
+  ReactQuery,
+  useReactQueryClient,
+  useReactQueryContext,
+};
