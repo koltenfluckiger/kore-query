@@ -8,26 +8,25 @@ function useReactQuery({
   queryContext = useReactQueryContext(),
   queryKey,
   queryFunc,
+  queryOptions,
 }: {
   queryContext: React.Context<QueryClient | undefined>;
   queryKey: Array<string>;
   queryFunc: Awaited<Promise<any>>;
+  queryOptions: Object;
 }) {
-  try {
-    return useQuery({
-      // @ts-ignore
-      queryKey: queryKey,
-      queryFn: async () => {
-        const { data } = await queryFunc();
-        return data;
-      },
-      context: queryContext,
-    });
-  } catch (err) {
-    console.log(err);
-    return err;
-  }
+  return useQuery({
+    // @ts-ignore
+    queryKey: queryKey,
+    queryFn: async () => {
+      const { data } = await queryFunc();
+      return data;
+    },
+    context: queryContext,
+    ...queryOptions,
+  });
 }
+
 function useReactQueryAutoRefetch({
   refetchInterval = Time.convert({
     to: TYPE.SECONDS,
