@@ -1,8 +1,8 @@
-import { QueryClient, useQuery } from "@tanstack/react-query";
-import { TYPE, Time } from "../../utils";
+import {QueryClient, useQuery} from "@tanstack/react-query";
+import {TYPE, Time} from "../../utils";
 
 import React from "react";
-import { useReactQueryContext } from "../../providers";
+import {useReactQueryContext} from "../../providers";
 
 function useReactQuery({
   queryContext = useReactQueryContext(),
@@ -19,7 +19,7 @@ function useReactQuery({
     // @ts-ignore
     queryKey: queryKey,
     queryFn: async () => {
-      const { data } = await queryFunc();
+      const {data} = await queryFunc();
       return data;
     },
     context: queryContext,
@@ -48,11 +48,11 @@ function useReactQueryAutoRefetch({
     // @ts-ignore
     queryKey: queryKey,
     queryFn: async () => {
-      const { data } = await queryFunc();
+      const {data} = await queryFunc();
       return data;
     },
     context: queryContext,
     refetchInterval: refetchInterval,
   });
 }
-export { useReactQuery, useReactQueryAutoRefetch };
+export {useReactQuery, useReactQueryAutoRefetch};

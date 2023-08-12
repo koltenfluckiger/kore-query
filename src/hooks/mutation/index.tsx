@@ -1,4 +1,4 @@
-import { QueryClient, useMutation } from "@tanstack/react-query";
+import {QueryClient, useMutation} from "@tanstack/react-query";
 
 import React from "react";
 
@@ -10,7 +10,7 @@ function useReactQueryMutation({
   mutationFn: Awaited<Promise<any>>;
 }) {
   try {
-    return useMutation(mutationFn, { context: queryContext });
+    return useMutation(mutationFn, {context: queryContext});
   } catch (err) {
     throw new Error(err);
   }

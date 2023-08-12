@@ -1,6 +1,6 @@
-import React, { ReactElement, createContext, useReducer } from "react";
+import React, {ReactElement, createContext, useReducer} from "react";
 
-import { queueReducer } from "./reducers";
+import {queueReducer} from "./reducers";
 
 const QueueContext = createContext(null);
 
@@ -11,27 +11,27 @@ function QueueProvider({
 }): React.Context<typeof QueueProvider> | ReactElement<any, any> {
   const [state, dispatch] = useReducer(queueReducer, []);
   const add = (item: any) => {
-    dispatch({ type: "add", item: item });
+    dispatch({type: "add", item: item});
   };
 
   const remove = (item: any) => {
-    dispatch({ type: "remove", item: item });
+    dispatch({type: "remove", item: item});
   };
 
   const clear = () => {
-    dispatch({ type: "clear" });
+    dispatch({type: "clear"});
   };
 
   const first = () => {
-    dispatch({ type: "first" });
+    dispatch({type: "first"});
   };
 
   const last = () => {
-    dispatch({ type: "last" });
+    dispatch({type: "last"});
   };
 
   const empty = () => {
-    dispatch({ type: "empty" });
+    dispatch({type: "empty"});
   };
 
   const values = {
@@ -50,4 +50,4 @@ function QueueProvider({
 }
 
 const useQueue = () => React.useContext(QueueContext);
-export { QueueProvider, useQueue };
+export {QueueProvider, useQueue};

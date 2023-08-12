@@ -24,4 +24,4 @@ function queueReducer(queue: Array<Object>, action: IAction) {
   }
 }
 
-export { initialState, queueReducer };
+export {initialState, queueReducer};

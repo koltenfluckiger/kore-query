@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, {createContext, useContext, useState} from "react";
 
 import Korios from "../../korios";
 
@@ -36,4 +36,4 @@ const useKorios = () => {
   return useContext(KoriosContext);
 };
 
-export { KoriosProvider, useKorios };
+export {KoriosProvider, useKorios};

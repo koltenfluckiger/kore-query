@@ -10,12 +10,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import React, {
-  ReactElement,
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import React, { ReactElement, createContext, useContext, useState } from "react";
 
 // @ts-ignore
 const KoreQueryContext: React.Context<QueryClient> = createContext({});
@@ -59,7 +54,7 @@ const ReactQuery = ({
   queryCacheOptions?: Object;
   mutationCacheOptions?: Object;
 }): React.Context<QueryClient> | ReactElement<any, any> => {
-  const newOptions: Object = { ...options, ...customOptions };
+  const newOptions: Object = {...options, ...customOptions};
   const client = queryClientFactory({
     newOptions,
     queryCacheOptions,
@@ -92,5 +87,6 @@ export {
   KoreQueryContext,
   ReactQuery,
   useReactQueryClient,
-  useReactQueryContext,
+  useReactQueryContext
 };
+
