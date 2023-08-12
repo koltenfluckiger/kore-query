@@ -1,8 +1,8 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+![GitHub contributors](https://img.shields.io/github/contributors/koltenfluckiger/kore-query?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/koltenfluckiger/kore-query?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/koltenfluckiger/kore-query?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/koltenfluckiger/kore-query?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/koltenfluckiger/kore-query?style=for-the-badge)
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -140,23 +140,24 @@ Kolten Fluckiger
 
 [contributors-shield]: https://img.shields.io/github/contributors/koltenfluckiger/repo.svg?style=for-the-badge
 
-[contributors-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/graphs/contributors
+[contributors-url]: https://github.com/koltenfluckiger/kore-query/graphs/contributors
 
 [forks-shield]: https://img.shields.io/github/forks/koltenfluckiger/repo.svg?style=for-the-badge
 
-[forks-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/network/members
+[forks-url]: ![GitHub Repo stars](https://img.shields.io/github/stars/koltenfluckiger/kore-query)
+
 
 [stars-shield]: https://img.shields.io/github/stars/koltenfluckiger/repo.svg?style=for-the-badge
 
-[stars-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/stargazers
+[stars-url]:  https://img.shields.io/github/stars/koltenfluckiger/kore-query
 
 [issues-shield]: https://img.shields.io/github/issues/koltenfluckiger/repo.svg?style=for-the-badge
 
-[issues-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/issues
+[issues-url]: https://github.com/koltenfluckiger/kore-query/issues
 
 [license-shield]: https://img.shields.io/github/license/koltenfluckiger/repo.svg?style=for-the-badge
 
-[license-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/blob/master/LICENSE.txt
+[license-url]: https://github.com/koltenfluckiger/kore-query/blob/master/LICENSE.txt
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
