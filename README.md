@@ -1,3 +1,11 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
 # Kore-Query
 
 A library built on @tanstack/react-query to increase ease of use, control, and efficiency
@@ -128,3 +136,28 @@ Kolten Fluckiger
 
 - GitHub Username: koltenfluckiger
 - GitHub Email: <wrtunder@gmail.com>
+---
+
+[contributors-shield]: https://img.shields.io/github/contributors/koltenfluckiger/repo.svg?style=for-the-badge
+
+[contributors-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/graphs/contributors
+
+[forks-shield]: https://img.shields.io/github/forks/koltenfluckiger/repo.svg?style=for-the-badge
+
+[forks-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/network/members
+
+[stars-shield]: https://img.shields.io/github/stars/koltenfluckiger/repo.svg?style=for-the-badge
+
+[stars-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/stargazers
+
+[issues-shield]: https://img.shields.io/github/issues/koltenfluckiger/repo.svg?style=for-the-badge
+
+[issues-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/issues
+
+[license-shield]: https://img.shields.io/github/license/koltenfluckiger/repo.svg?style=for-the-badge
+
+[license-url]: https://github.com/koltenfluckiger/pylibseleniummanagement/blob/master/LICENSE.txt
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
+[linkedin-url]: https://linkedin.com/in/koltenfluckiger
