@@ -1,24 +1,23 @@
+# Kore Query
+
 ![GitHub contributors](https://img.shields.io/github/contributors/koltenfluckiger/kore-query?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/koltenfluckiger/kore-query?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/koltenfluckiger/kore-query?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/koltenfluckiger/kore-query?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/koltenfluckiger/kore-query?style=for-the-badge)
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Kore-Query
 
 A library built on @tanstack/react-query to increase ease of use, control, and efficiency
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-[A deployed version can be viewed here.]()
-
 ---
 
 ## Contents
 
-- [Kore-Query](#kore-query)
+- [Kore Query](#kore-query)
+- [Kore-Query](#kore-query-1)
   - [Contents](#contents)
   - [About](#about)
   - [Installation](#installation)
@@ -136,29 +135,10 @@ Kolten Fluckiger
 
 - GitHub Username: koltenfluckiger
 - GitHub Email: <wrtunder@gmail.com>
+
 ---
-
-[contributors-shield]: https://img.shields.io/github/contributors/koltenfluckiger/repo.svg?style=for-the-badge
-
-[contributors-url]: https://github.com/koltenfluckiger/kore-query/graphs/contributors
-
-[forks-shield]: https://img.shields.io/github/forks/koltenfluckiger/repo.svg?style=for-the-badge
 
 [forks-url]: ![GitHub Repo stars](https://img.shields.io/github/stars/koltenfluckiger/kore-query)
 
-
-[stars-shield]: https://img.shields.io/github/stars/koltenfluckiger/repo.svg?style=for-the-badge
-
-[stars-url]:  https://img.shields.io/github/stars/koltenfluckiger/kore-query
-
-[issues-shield]: https://img.shields.io/github/issues/koltenfluckiger/repo.svg?style=for-the-badge
-
-[issues-url]: https://github.com/koltenfluckiger/kore-query/issues
-
-[license-shield]: https://img.shields.io/github/license/koltenfluckiger/repo.svg?style=for-the-badge
-
-[license-url]: https://github.com/koltenfluckiger/kore-query/blob/master/LICENSE.txt
-
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-
 [linkedin-url]: https://linkedin.com/in/koltenfluckiger
