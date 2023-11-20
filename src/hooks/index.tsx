@@ -1,11 +1,11 @@
-import {useReactQuery, useReactQueryAutoRefetch} from "./query";
+import {useKoreQuery, useKoreQueryAutoRefetch} from "./query";
 
-import useReactQueryMutation from "./mutation";
-import useReactQueryPrefetch from "./prefetch";
+import useKoreQueryMutation from "./mutation";
+import useKoreQueryPrefetch from "./prefetch";
 
 export {
-  useReactQuery,
-  useReactQueryAutoRefetch,
-  useReactQueryMutation,
-  useReactQueryPrefetch,
+  useKoreQuery,
+  useKoreQueryAutoRefetch,
+  useKoreQueryMutation,
+  useKoreQueryPrefetch,
 };

@@ -10,7 +10,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import React, { ReactElement, createContext, useContext, useState } from "react";
+import React, {ReactElement, createContext, useContext, useState} from "react";
 
 // @ts-ignore
 const KoreQueryContext: React.Context<QueryClient> = createContext({});
@@ -33,7 +33,7 @@ const queryClientFactory = ({
   });
 };
 
-const ReactQuery = ({
+const KoreQuery = ({
   children,
   options = {
     queries: {
@@ -74,19 +74,13 @@ const ReactQuery = ({
     </QueryClientProvider>
   );
 };
-const useReactQueryClient = () => {
+const useKoreQueryClient = () => {
   // @ts-ignore
   return useContext(KoreQueryContext);
 };
 
-const useReactQueryContext = () => {
+const useKoreQueryContext = () => {
   return KoreQueryContext;
 };
 
-export {
-  KoreQueryContext,
-  ReactQuery,
-  useReactQueryClient,
-  useReactQueryContext
-};
-
+export {KoreQuery, KoreQueryContext, useKoreQueryClient, useKoreQueryContext};

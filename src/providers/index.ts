@@ -1,5 +1,5 @@
-import { KoreQueryContext, ReactQuery, useReactQueryClient, useReactQueryContext } from "./react-query";
+import { KoreQuery, KoreQueryContext, useKoreQueryClient, useKoreQueryContext } from "./kore-query";
 import { KoriosProvider, useKorios } from "./korios";
 import { QueueProvider, useQueue } from "./queue";
-export { KoreQueryContext, KoriosProvider, QueueProvider, ReactQuery, useKorios, useQueue, useReactQueryClient, useReactQueryContext };
+export { KoreQuery, KoreQueryContext, KoriosProvider, QueueProvider, useKoreQueryClient, useKoreQueryContext, useKorios, useQueue };
 

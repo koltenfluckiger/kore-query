@@ -1,8 +1,8 @@
-import { KoreQueryContext, KoriosProvider, ReactQuery, useKorios, useReactQueryClient, useReactQueryContext } from "./providers";
+import { useKoreQuery, useKoreQueryAutoRefetch, useKoreQueryMutation, useKoreQueryPrefetch } from "./hooks";
+import { KoreQuery, KoreQueryContext, KoriosProvider, useKoreQueryClient, useKoreQueryContext, useKorios } from "./providers";
 import { asyncRequest, wrapInSuspense } from "./utils";
-import { useReactQuery, useReactQueryAutoRefetch, useReactQueryMutation, useReactQueryPrefetch } from "./hooks";
 
 import Korios from "./korios";
 
-export { KoreQueryContext, Korios, KoriosProvider, ReactQuery, asyncRequest, useKorios, useReactQuery, useReactQueryAutoRefetch, useReactQueryClient, useReactQueryContext, useReactQueryMutation, useReactQueryPrefetch, wrapInSuspense };
+export { KoreQuery, KoreQueryContext, Korios, KoriosProvider, asyncRequest, useKoreQuery, useKoreQueryAutoRefetch, useKoreQueryClient, useKoreQueryContext, useKoreQueryMutation, useKoreQueryPrefetch, useKorios, wrapInSuspense };
 

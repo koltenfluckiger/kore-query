@@ -1,16 +1,16 @@
 import {QueryClient, useMutation} from "@tanstack/react-query";
 
-import React from "react";
+import {useKoreQueryClient} from "../../providers";
 
 function useReactQueryMutation({
-  queryContext,
+  queryClient = useKoreQueryClient(),
   mutationFn,
 }: {
-  queryContext: React.Context<QueryClient | undefined>;
+  queryClient: QueryClient | undefined;
   mutationFn: Awaited<Promise<any>>;
 }) {
   try {
-    return useMutation(mutationFn, {context: queryContext});
+    return useMutation(mutationFn, (queryClient = queryClient));
   } catch (err) {
     throw new Error(err);
   }

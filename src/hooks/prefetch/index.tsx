@@ -1,16 +1,12 @@
-import {QueryClient} from "@tanstack/react-query";
-import React from "react";
-
-function useReactQueryPrefetch({
-  queryContext,
+import {useKoreQueryClient} from "../../providers";
+function useKoreQueryPrefetch({
   queryKey,
   queryFunc,
 }: {
-  queryContext: React.Context<QueryClient>;
   queryKey: Array<string>;
   queryFunc: Awaited<Promise<any>>;
 }) {
-  const queryClient = React.useContext(queryContext);
+  const queryClient = useKoreQueryClient();
   return queryClient.prefetchQuery({
     queryKey: queryKey,
     queryFn: async () => {
@@ -19,4 +15,4 @@ function useReactQueryPrefetch({
     },
   });
 }
-export default useReactQueryPrefetch;
+export default useKoreQueryPrefetch;
