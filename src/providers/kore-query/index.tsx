@@ -10,7 +10,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import React, {ReactElement, createContext, useContext, useState} from "react";
+import React, {createContext, useContext, useState} from "react";
 
 // @ts-ignore
 const KoreQueryContext: React.Context<QueryClient> = createContext({});
@@ -25,7 +25,6 @@ const queryClientFactory = ({
   mutationCacheOptions: Object;
 }): QueryClient => {
   // @ts-ignore
-
   return new QueryClient({
     defaultOptions: newOptions,
     mutationCache: new MutationCache(mutationCacheOptions),
@@ -33,8 +32,9 @@ const queryClientFactory = ({
   });
 };
 
-const KoreQuery = ({
-  children,
+function KoreQuery({
+  // @ts-ignore
+
   options = {
     queries: {
       staleTime: 0.5 * 24 * 60 * 60,
@@ -47,33 +47,35 @@ const KoreQuery = ({
   customOptions = {},
   queryCacheOptions = {},
   mutationCacheOptions = {},
-}: {
+  ...props
+}): {
   children: JSX.Element;
   options?: KoreQuery.ReactQueryOptions;
   customOptions?: Object;
   queryCacheOptions?: Object;
   mutationCacheOptions?: Object;
-}): React.Context<QueryClient> | ReactElement<any, any> => {
+} {
   const newOptions: Object = {...options, ...customOptions};
-  const client = queryClientFactory({
-    newOptions,
-    queryCacheOptions,
-    mutationCacheOptions,
-  });
-  const [newClient] = useState(() => client);
-  console.log(newClient);
-
+  const [queryClient] = useState(() =>
+    queryClientFactory({
+      newOptions,
+      queryCacheOptions,
+      mutationCacheOptions,
+    })
+  );
+  // @ts-ignore
   return (
     // @ts-ignore
     <QueryClientProvider
-      client={newClient}
+      client={queryClient}
       // @ts-ignore
-      context={KoreQueryContext}
+      context={useKoreQueryContext()}
+      contextSharing={true}
     >
-      {children}
+      {props.children}
     </QueryClientProvider>
   );
-};
+}
 const useKoreQueryClient = () => {
   // @ts-ignore
   return useContext(KoreQueryContext);

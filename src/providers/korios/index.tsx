@@ -1,34 +1,35 @@
 import React, {createContext, useContext, useState} from "react";
 
-import Korios from "../../korios";
+import Korio from "../../korio";
 
 const KoriosContext = createContext(null);
 
 function createKoriosClient(options: Object) {
-  Korios.create(options);
-  return Korios._getInstance();
+  Korio.create(options);
+  return Korio._getInstance();
 }
 
 function KoriosProvider({
   children,
-  options = {
+  defaultOptions = {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    withCreditionals: true,
+    withCredentials: true,
   },
+  options = {},
 }: {
   children: JSX.Element;
+  defaultOptions?: Object;
   options?: Object;
 }): React.Context<typeof KoriosContext> | React.ReactElement<any, any> {
-  const korios = createKoriosClient(options);
-  const [koriosClient, setKoriosClient] = useState(korios);
+  const opts = {...defaultOptions, ...options};
+  const KoriosClient = createKoriosClient(opts);
+  const [Korios] = useState(() => KoriosClient);
 
   return (
-    <KoriosContext.Provider value={koriosClient}>
-      {children}
-    </KoriosContext.Provider>
+    <KoriosContext.Provider value={Korios}>{children}</KoriosContext.Provider>
   );
 }
 

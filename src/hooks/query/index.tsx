@@ -1,61 +1,63 @@
 import {QueryClient, useQuery} from "@tanstack/react-query";
-import {TYPE, Time} from "../../utils";
 
-import {useKoreQueryClient} from "../../providers";
+import React from "react";
+import {Time} from "../../utils";
+import {useKoreQueryContext} from "../../providers";
 
 function useKoreQuery({
-  queryClient = useKoreQueryClient(),
+  queryContext = useKoreQueryContext(),
   queryKey,
   queryFunc,
   queryOptions,
 }: {
-  queryClient: QueryClient | undefined;
+  queryContext: React.Context<QueryClient | undefined>;
   queryKey: Array<string>;
   queryFunc: Awaited<Promise<any>>;
   queryOptions: Object;
 }) {
-  return useQuery(
-    {
-      // @ts-ignore
-      queryKey: queryKey,
-      queryFn: async () => {
+  return useQuery({
+    // @ts-ignore
+    queryKey: queryKey,
+    queryFn: async () => {
+      try {
         const {data} = await queryFunc();
         return data;
-      },
-      ...queryOptions,
+      } catch (err) {
+        console.log(err);
+        throw err;
+      }
     },
-    queryClient
-  );
+    context: queryContext,
+    ...queryOptions,
+  });
 }
 
 function useKoreQueryAutoRefetch({
   refetchInterval = Time.convert({
-    to: TYPE.SECONDS,
+    to: Time.TYPES.MILLISECONDS,
     hours: 1,
     minutes: 0,
     seconds: 0,
     days: 0,
   }),
-  queryClient = useKoreQueryClient(),
+  queryContext = useKoreQueryContext(),
   queryKey,
   queryFunc,
 }: {
   refetchInterval: number | undefined;
-  queryClient: QueryClient | undefined;
+  queryContext: React.Context<QueryClient | undefined>;
   queryKey: Array<string>;
   queryFunc: Awaited<Promise<any>>;
 }) {
-  return useQuery(
-    {
-      // @ts-ignore
-      queryKey: queryKey,
-      queryFn: async () => {
-        const {data} = await queryFunc();
-        return data;
-      },
-      refetchInterval: refetchInterval,
+  return useQuery({
+    // @ts-ignore
+    queryKey: queryKey,
+    queryFn: async () => {
+      const {data} = await queryFunc();
+      return data;
     },
-    queryClient
-  );
+    context: queryContext,
+    refetchInterval: refetchInterval,
+  });
 }
 export {useKoreQuery, useKoreQueryAutoRefetch};
