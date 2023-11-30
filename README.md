@@ -12,6 +12,8 @@
 
 A library built on @tanstack/react-query to increase ease of use, control, and efficiency
 
+[Github Repo](https://github.com/koltenfluckiger/kore-query)
+
 ---
 
 ## Contents
@@ -135,10 +137,9 @@ Kolten Fluckiger
 
 - GitHub Username: koltenfluckiger
 - GitHub Email: <wrtunder@gmail.com>
+- [Github Repo](https://github.com/koltenfluckiger/kore-query)
 
 ---
-
-[forks-url]: ![GitHub Repo stars](https://img.shields.io/github/stars/koltenfluckiger/kore-query)
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/koltenfluckiger
