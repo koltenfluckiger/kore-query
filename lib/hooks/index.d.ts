@@ -1,4 +1,5 @@
 import { useKoreQuery, useKoreQueryAutoRefetch } from "./query";
-import useKoreQueryMutation from "./mutation";
+import { useKoreQueryMutation, useKoreQueryMutationRequest } from "./mutation";
 import useKoreQueryPrefetch from "./prefetch";
-export { useKoreQuery, useKoreQueryAutoRefetch, useKoreQueryMutation, useKoreQueryPrefetch, };
+import withKoreQueryLoader from "./with-kore-query-loader";
+export { useKoreQuery, useKoreQueryAutoRefetch, useKoreQueryMutation, useKoreQueryMutationRequest, useKoreQueryPrefetch, withKoreQueryLoader, };

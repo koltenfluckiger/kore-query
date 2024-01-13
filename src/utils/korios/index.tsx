@@ -1,4 +1,4 @@
-import Korios from "../../korio";
+import Korios from "../../korios";
 
 function asyncRequest(options: Object) {
   return Korios.asyncerrator(options);

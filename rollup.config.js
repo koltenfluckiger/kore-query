@@ -1,10 +1,9 @@
 const commonjs = require("@rollup/plugin-commonjs");
 const external = require("rollup-plugin-peer-deps-external");
 const pkg = require("./package.json");
-
+const postcss = require('rollup-plugin-postcss')
 const typescript = require("rollup-plugin-typescript2");
 const json = require("@rollup/plugin-json");
-
 const nodePollyfills = require("rollup-plugin-node-polyfills");
 const nodeResolve = require("@rollup/plugin-node-resolve");
 const babel = require("@rollup/plugin-babel").default;
@@ -36,6 +35,9 @@ module.exports = {
       transformMixedEsModules: true,
       defaultIsModuleExports: true,
       esmExternals: true,
+    }),
+    postcss({
+      modules: true
     }),
     nodePollyfills({
       include: null,

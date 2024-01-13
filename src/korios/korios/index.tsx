@@ -6,10 +6,10 @@ declare interface Options {
 
 import axios, {AxiosInstance, CreateAxiosDefaults} from "axios";
 
-class Korio {
+class Korios {
   public axios: AxiosInstance;
 
-  public _getInstance(): Korio {
+  public _getInstance(): Korios {
     return this;
   }
 
@@ -65,4 +65,4 @@ class Korio {
   }
 }
 
-export default new Korio();
+export default new Korios();

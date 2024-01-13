@@ -1,12 +1,12 @@
 import React, {createContext, useContext, useState} from "react";
 
-import Korio from "../../korio";
+import Korios from "../../korios";
 
 const KoriosContext = createContext(null);
 
 function createKoriosClient(options: Object) {
-  Korio.create(options);
-  return Korio._getInstance();
+  Korios.create(options);
+  return Korios._getInstance();
 }
 
 function KoriosProvider({
@@ -26,10 +26,10 @@ function KoriosProvider({
 }): React.Context<typeof KoriosContext> | React.ReactElement<any, any> {
   const opts = {...defaultOptions, ...options};
   const KoriosClient = createKoriosClient(opts);
-  const [Korios] = useState(() => KoriosClient);
+  const [korios] = useState(() => KoriosClient);
 
   return (
-    <KoriosContext.Provider value={Korios}>{children}</KoriosContext.Provider>
+    <KoriosContext.Provider value={korios}>{children}</KoriosContext.Provider>
   );
 }
 

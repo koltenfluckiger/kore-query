@@ -69,8 +69,7 @@ function KoreQuery({
     <QueryClientProvider
       client={queryClient}
       // @ts-ignore
-      context={useKoreQueryContext()}
-      contextSharing={true}
+      context={KoreQueryContext}
     >
       {props.children}
     </QueryClientProvider>
