@@ -4,13 +4,25 @@ import React from "react";
 import {Time} from "../../utils";
 import {useKoreQueryContext} from "../../providers";
 
-interface Options {
-  queryKey: Array<string>;
-  queryFunc: Awaited<Promise<any>>;
-  queryContext: React.Context<QueryClient | undefined>;
-  queryOptions: Object;
-}
+/**
+ * Options for useKoreQuery hook.
+ * @typedef {Object} Options
+ * @property {Array<string>} queryKey - Unique identifier for the query.
+ * @property {() => Promise<any>} queryFunc - Function to fetch the data.
+ * @property {React.Context<QueryClient | undefined>} queryContext - React context providing QueryClient.
+ * @property {Object} queryOptions - Additional options for the query.
+ */
 
+/**
+ * Custom hook for simplified data fetching using React Query.
+ *
+ * @param {Object} params - Parameters for the hook.
+ * @param {React.Context<QueryClient | undefined>} [params.queryContext=useKoreQueryContext()] - Context providing QueryClient.
+ * @param {Array<string>} params.queryKey - Unique key for the query.
+ * @param {() => Promise<any>} params.queryFunc - Function to execute for data fetching.
+ * @param {Object} [params.queryOptions] - Additional options for the query.
+ * @returns {Object} - The result of the useQuery hook from React Query.
+ */
 function useKoreQuery({
   queryContext = useKoreQueryContext(),
   queryKey,
@@ -39,6 +51,14 @@ function useKoreQuery({
   });
 }
 
+/**
+ * Custom hook for automatically refetching queries at a specified interval.
+ *
+ * @param {Object} params - Parameters for the hook.
+ * @param {number} [params.refetchInterval=Time.convert(...)] - Interval for auto refetching in milliseconds.
+ * @param {...otherParams} - Other parameters passed to useKoreQuery.
+ * @returns {Object} - The result of the useQuery hook with auto refetching configured.
+ */
 function useKoreQueryAutoRefetch({
   refetchInterval = Time.convert({
     to: Time.TYPES.MILLISECONDS,
@@ -72,30 +92,4 @@ function useKoreQueryAutoRefetch({
     refetchInterval: refetchInterval,
   });
 }
-
-// function useKoreQueryRequest({
-//   axiosOptions,
-//   options,
-// }: {
-//   axiosOptions: Object;
-//   options: Options;
-// }) {
-//   return {
-//     use: (options: Options, req: Promise<any>) => {
-//       return useQuery({
-//         queryKey: options.queryKey,
-//         queryFn: async () => {
-//           try {
-//             const {data} = await req;
-//             return data;
-//           } catch (err) {
-//             console.log(err);
-//             throw err;
-//           }
-//         },
-//         context: options.queryContext,
-//       });
-//     },
-//   };
-// }
 export {useKoreQuery, useKoreQueryAutoRefetch};
