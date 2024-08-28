@@ -12,6 +12,8 @@
 
 A library built on @tanstack/react-query to increase ease of use, control, and efficiency
 
+[Github Repo](https://github.com/koltenfluckiger/kore-query)
+
 ---
 
 ## Contents
@@ -76,7 +78,7 @@ git clone https://github.com/koltenfluckiger/kore-query.git
 ## Examples
 
 ```javascript
-import {Korios, useReactQuery, useReactQueryContext} from "kore-query";
+import {Korios, useKoreQuery, useKoreQueryContext} from "kore-query";
 import React, {Suspense} from "react";
 
 function Container({children, ...props}) {
@@ -86,7 +88,7 @@ function Container({children, ...props}) {
     method: "GET",
     options: {withCredentials: true},
   });
-  const {data, isLoading, error} = useReactQuery({
+  const {data, isLoading, error} = useKoreQuery({
     queryKey: ["dashboard"],
     queryFunc: dashboards,
   });
@@ -135,10 +137,9 @@ Kolten Fluckiger
 
 - GitHub Username: koltenfluckiger
 - GitHub Email: <wrtunder@gmail.com>
+- [Github Repo](https://github.com/koltenfluckiger/kore-query)
 
 ---
-
-[forks-url]: ![GitHub Repo stars](https://img.shields.io/github/stars/koltenfluckiger/kore-query)
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/koltenfluckiger

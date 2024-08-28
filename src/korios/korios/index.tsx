@@ -33,14 +33,13 @@ class Korios {
   }
 
   public asyncerrator(options = {}): () => Promise<any> {
-    const req = async () => {
+    return async () => {
       try {
         return await this.axios.request(options);
       } catch (err) {
         return Promise.reject(err);
       }
     };
-    return req;
   }
 
   public async request(options = {}): Promise<Object> {
@@ -57,8 +56,7 @@ class Korios {
     {params = {}, headers = {}, options = {}} = {}
   ): Promise<Object> {
     try {
-      const results = await this.axios.get(url, {params, headers, ...options});
-      return results;
+      return await this.axios.get(url, {params, headers, ...options});
     } catch (err) {
       throw err;
     }
