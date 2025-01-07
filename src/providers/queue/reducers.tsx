@@ -14,9 +14,9 @@ function queueReducer(queue: Array<Object>, action: IAction) {
     case "clear":
       return [];
     case "first":
-      return queue[0] ? queue[0] : null;
+      return queue[0] || null;
     case "last":
-      return queue[queue.length - 1] ? queue[queue.length - 1] : null;
+      return queue[queue.length - 1] || null;
     case "empty":
       return queue.length === 0;
     default:

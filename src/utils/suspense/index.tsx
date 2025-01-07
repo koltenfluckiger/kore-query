@@ -24,8 +24,7 @@ function wrapInSuspense(promise: Promise<any>) {
   };
 
   const read = () => {
-    const result = Handler[status] ? Handler[status]() : Handler.default();
-    return result;
+    return Handler[status] ? Handler[status]() : Handler.default();
   };
 
   return {read};
