@@ -7,8 +7,8 @@ import {
   useKorios,
 } from "./providers";
 import {
-  TYPE,
   Time,
+  UNIT,
   asyncRequest,
   flatten,
   isObject,
@@ -24,14 +24,14 @@ import {
   withKoreQueryLoader,
 } from "./hooks";
 
-import {Korios} from "./korios";
+import Korios from "./korios";
 
 export {
   KoreQuery,
   KoreQueryContext,
   Korios,
   KoriosProvider,
-  TYPE,
+  UNIT,
   Time,
   asyncRequest,
   flatten,

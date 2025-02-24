@@ -1,8 +1,7 @@
-import { TIMETYPE, TYPE, Time } from "./time";
-import { flatten, isObject, toJSON } from "./format";
+import {Time, UNIT} from "./time";
+import {flatten, isObject, toJSON} from "./format";
 
 import asyncRequest from "./korios";
 import wrapInSuspense from "./suspense";
 
-export { asyncRequest, Time, TIMETYPE, TYPE, toJSON, flatten, isObject, wrapInSuspense };
-
+export {asyncRequest, Time, UNIT, toJSON, flatten, isObject, wrapInSuspense};

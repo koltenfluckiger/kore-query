@@ -1,4 +1,4 @@
-const TYPE = {
+const UNIT = {
   SECONDS: 1,
   MINUTES: 60,
   HOURS: 3600,
@@ -6,9 +6,9 @@ const TYPE = {
   MILLISECONDS: 0.001,
 } as const;
 
-type TIMETYPE = (typeof TYPE)[keyof typeof TYPE];
+type UNITTYPE = (typeof UNIT)[keyof typeof UNIT];
 class Time {
-  public static TYPES: typeof TYPE = TYPE;
+  public static UNIT: typeof UNIT = UNIT;
 
   public static daysToSeconds(days: number) {
     return Math.floor(Math.abs(days * 86400));
@@ -42,28 +42,28 @@ class Time {
     minutes = 0,
     seconds = 0,
   }: {
-    to: TIMETYPE;
+    to: UNITTYPE;
     days: number;
     hours: number;
     minutes: number;
     seconds: number;
   }): number {
     switch (+to) {
-      case TYPE.SECONDS:
+      case UNIT.SECONDS:
         return (
           this.daysToSeconds(days) +
           this.hoursToSeconds(hours) +
           this.minutesToSeconds(minutes) +
           seconds
         );
-      case TYPE.MILLISECONDS:
+      case UNIT.MILLISECONDS:
         const totalSeconds =
           this.daysToSeconds(days) +
           this.hoursToSeconds(hours) +
           this.minutesToSeconds(minutes) +
           seconds;
         return this.secondsToMilliseconds(totalSeconds);
-      case TYPE.MINUTES:
+      case UNIT.MINUTES:
         return (
           this.daysToSeconds(days) +
           this.hoursToSeconds(hours) +
@@ -76,4 +76,4 @@ class Time {
   }
 }
 
-export {TIMETYPE, TYPE, Time};
+export {UNIT, Time};

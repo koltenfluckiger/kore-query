@@ -1,7 +1,7 @@
 import {QueryClient, useQuery} from "@tanstack/react-query";
+import {Time, UNIT} from "../../utils";
 
 import React from "react";
-import {Time} from "../../utils";
 import {useKoreQueryContext} from "../../providers";
 
 /**
@@ -21,6 +21,7 @@ import {useKoreQueryContext} from "../../providers";
  * @param {Array<string>} params.queryKey - Unique key for the query.
  * @param {() => Promise<any>} params.queryFunc - Function to execute for data fetching.
  * @param {Object} [params.queryOptions] - Additional options for the query.
+ * @param {(response) => Object} params.responseTransformer - A response transformer function. Default is: (response: any) => response.data.data
  * @returns {Object} - The result of the useQuery hook from React Query.
  */
 function useKoreQuery({
@@ -58,11 +59,12 @@ function useKoreQuery({
  * @param {Object} params - Parameters for the hook.
  * @param {number} [params.refetchInterval=Time.convert(...)] - Interval for auto refetching in milliseconds.
  * @param {...otherParams} - Other parameters passed to useKoreQuery.
+ * @param {(response) => Object} params.responseTransformer - A response transformer function. Default is: (response: any) => response.data.data
  * @returns {Object} - The result of the useQuery hook with auto refetching configured.
  */
 function useKoreQueryAutoRefetch({
   refetchInterval = Time.convert({
-    to: Time.TYPES.MILLISECONDS,
+    to: UNIT.MILLISECONDS,
     hours: 1,
     minutes: 0,
     seconds: 0,
@@ -71,18 +73,20 @@ function useKoreQueryAutoRefetch({
   queryContext = useKoreQueryContext(),
   queryKey,
   queryFunc,
+  responseTransformer = (response: any) => response.data.data,
 }: {
   refetchInterval: number | undefined;
   queryContext: React.Context<QueryClient | undefined>;
   queryKey: Array<string>;
   queryFunc: Awaited<Promise<any>>;
+  responseTransformer?: (response: any) => any; // Transformer function to process the response
 }) {
   return useQuery({
     queryKey: queryKey,
     queryFn: async () => {
       try {
-        const {data} = await queryFunc();
-        return data;
+        const response = await queryFunc();
+        return responseTransformer ? responseTransformer(response) : response;
       } catch (err) {
         console.log(err);
         throw err;

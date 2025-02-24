@@ -1,3 +1,3 @@
 import Korios from "./korios";
 
-export {Korios};
+export default Korios;

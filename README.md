@@ -78,19 +78,20 @@ git clone https://github.com/koltenfluckiger/kore-query.git
 ## Examples
 
 ```javascript
-import {Korios, useKoreQuery, useKoreQueryContext} from "kore-query";
-import React, {Suspense} from "react";
+import {useKorios, useKoreQuery} from "kore-query";
+import React from "react";
 
 function Container({children, ...props}) {
-  const dashboards = Korios.asyncerrator({
-    url: "/api/dashboards",
+  const Korios = useKorios();
+  const reviewsRequest = Korios.asyncerrator({
+    url: "/api/reviews",
     params: {populate: "*"},
     method: "GET",
     options: {withCredentials: true},
   });
   const {data, isLoading, error} = useKoreQuery({
-    queryKey: ["dashboard"],
-    queryFunc: dashboards,
+    queryKey: ["reviews"],
+    queryFunc: reviewsRequest,
   });
 
   if (isLoading) {

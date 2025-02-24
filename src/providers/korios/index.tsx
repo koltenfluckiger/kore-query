@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState} from "react";
 
-import {Korios} from "../../korios";
+import Korios from "../../korios";
 
 const KoriosContext = createContext(null);
 
