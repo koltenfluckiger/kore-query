@@ -1,4 +1,4 @@
-import React, {ReactElement, createContext, useReducer} from "react";
+import React, {JSX, ReactElement, createContext, useReducer} from "react";
 
 import {queueReducer} from "./reducers";
 
